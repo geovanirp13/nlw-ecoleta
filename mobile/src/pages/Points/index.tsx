@@ -112,6 +112,7 @@ const Points = () => {
         { initialPosition[0] !== 0 && (
           <MapView
             style={styles.map}
+            loadingEnabled={initialPosition[0] === 0}
             initialRegion={{
               latitude: initialPosition[0],
               longitude: initialPosition[1],
@@ -125,8 +126,8 @@ const Points = () => {
                 style={styles.mapMarker}
                 onPress={() => handleNavigatorDetail(point.id)}
                 coordinate={{
-                  latitude: initialPosition[0],
-                  longitude: initialPosition[1],
+                  latitude: point.latitude,
+                  longitude: point.longitude,
                 }}
               >
               <View style={styles.mapMarkerContainer}>
